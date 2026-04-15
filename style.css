@@ -692,3 +692,49 @@ code {
 .card, .noticia, .form-section, .info-card, .resumo-compra {
     animation: fadeInUp 0.6s ease forwards;
 }
+
+/* 🔥 CORREÇÕES FINAIS RESPONSIVAS */
+
+/* evita scroll lateral no celular */
+body {
+    overflow-x: hidden;
+}
+
+/* imagens nunca estouram */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* textos não estouram */
+h1, h2, h3, p {
+    word-wrap: break-word;
+}
+
+/* botão ocupa largura no mobile */
+@media (max-width: 768px) {
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* corrige menu mobile (clique melhor) */
+nav a {
+    display: inline-block;
+}
+
+/* melhora cards no celular */
+@media (max-width: 480px) {
+    .card {
+        padding: 1rem;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}

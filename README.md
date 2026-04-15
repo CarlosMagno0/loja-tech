@@ -41,10 +41,4 @@ O projeto simula uma loja online com múltiplas páginas, permitindo navegação
 ## 👨‍💻 Desenvolvedor
 
 Carlos Eduardo Magno
- 
 
----
-
-## 📎 Observação
-
-Este projeto foi desenvolvido apenas com HTML e CSS, sem uso de JavaScript ou backend, com o objetivo de praticar a construção de interfaces web.

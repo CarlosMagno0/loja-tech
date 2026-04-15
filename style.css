@@ -573,7 +573,7 @@ code {
     }
     
     /* Overlay */
-    .menu-toggle:checked ~ .menu-overlay {
+    .menu-toggle:checked ~ header .menu-overlay {
         display: block;
     }
     

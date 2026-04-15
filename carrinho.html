@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Loja Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.png" type="image/png">
+</head>
+<body>
+
+
+<header>
+    <div class="topo">
+        <img src="img/logo.png" alt="Logo Loja Tech" class="logo">
+        
+        
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-label">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="menu-overlay"></div>
+        
+        <h1>Loja Tech</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Início</a></li>
+            <li><a href="produtos.html">🖱️ Produtos</a></li>
+            <li><a href="carrinho.html">🛒 Carrinho</a></li>
+            <li><a href="contato.html">📞 Fale Conosco</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<main>
+    <section class="hero">
+        <h1>🛍️ Carrinho de Compras</h1>
+        <p>Revise seus itens antes de finalizar a compra</p>
+    </section>
+
+    <div class="carrinho-container">
+        <!-- ITENS DO CARRINHO -->
+        <div class="carrinho-itens">
+            <div class="item-carrinho">
+                <img src="img/mouse.jpg" alt="Mouse Gamer RGB" class="item-img">
+                <div class="item-info">
+                    <h3>Mouse Gamer RGB Pro</h3>
+                    <p class="item-desc">16.000 DPI • RGB Personalizável</p>
+                    <div class="item-quantidade">
+                        <label>Quantidade:</label>
+                        <select>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="item-preco">
+                    <span class="preco-unit">R$ 199,90</span>
+                    <span class="preco-total">R$ 169,90</span>
+                    <a href="#" class="btn-remover">🗑️ Remover</a>
+                </div>
+            </div>
+
+            <div class="item-carrinho">
+                <img src="img/teclado.png" alt="Teclado Mecânico" class="item-img">
+                <div class="item-info">
+                    <h3>Teclado Mecânico RGB</h3>
+                    <p class="item-desc">Switches Red • Anti-ghosting</p>
+                    <div class="item-quantidade">
+                        <label>Quantidade:</label>
+                        <select>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="item-preco">
+                    <span class="preco-unit">R$ 349,90</span>
+                    <span class="preco-total">R$ 299,90</span>
+                    <a href="#" class="btn-remover">🗑️ Remover</a>
+                </div>
+            </div>
+
+            <div class="item-carrinho">
+                <img src="img/headset.png" alt="Headset Gamer" class="item-img">
+                <div class="item-info">
+                    <h3>Headset Gamer 7.1</h3>
+                    <p class="item-desc">Surround 7.1 • Cancelamento ruído</p>
+                    <div class="item-quantidade">
+                        <label>Quantidade:</label>
+                        <select>
+                            <option>1</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="item-preco">
+                    <span class="preco-unit">R$ 289,90</span>
+                    <span class="preco-total">R$ 249,90</span>
+                    <a href="#" class="btn-remover">🗑️ Remover</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESUMO DO CARRINHO -->
+        <div class="resumo-compra">
+            <h3>Resumo da Compra</h3>
+            
+            <div class="resumo-item">
+                <span>Subtotal (3 itens)</span>
+                <span>R$ 839,70</span>
+            </div>
+            
+            <div class="resumo-item">
+                <span>Frete</span>
+                <span>Grátis</span>
+            </div>
+            
+            <div class="resumo-item destaque">
+                <span><strong>Total</strong></span>
+                <span><strong>R$ 719,50</strong></span>
+            </div>
+
+            <div class="promo-section">
+                <input type="text" placeholder="Cupom: GAMER15" class="input-promo">
+                <button class="btn-promo">Aplicar</button>
+            </div>
+
+            <a href="contato.html" class="btn btn-finalizar">✅ Finalizar Compra</a>
+            <a href="produtos.html" class="btn-continuar">🛒 Continuar Comprando</a>
+        </div>
+    </div>
+
+</main>
+
+
+<footer>
+    <div class="footer-content">
+        <p><strong>👨‍💻 Carlos Eduardo</strong></p>
+        <p>📞 Telefone: (31) 99999-9999</p>
+        <p>✉️ Email: carlos@email.com</p>
+        <p>&copy; 2026 Loja Tech. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>

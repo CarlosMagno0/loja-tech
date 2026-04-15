@@ -568,12 +568,12 @@ code {
     }
     
     /* Checkbox Hack para abrir/fechar menu */
-    .menu-toggle:checked ~ header nav {
+    .menu-toggle:checked ~ nav {
         right: 0;
     }
     
     /* Overlay */
-    .menu-toggle:checked ~ header .menu-overlay {
+    .menu-toggle:checked ~ .menu-overlay {
         display: block;
     }
     

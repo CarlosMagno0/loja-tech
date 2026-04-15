@@ -9,6 +9,7 @@ body {
     line-height: 1.6;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     min-height: 100vh;
+    overflow-x: hidden; /* 🔧 EVITA SCROLL HORIZONTAL */
 }
 
 /* HEADER */
@@ -16,6 +17,8 @@ header {
     background: #1e1e1e;
     color: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1001;
 }
 
 .topo {
@@ -28,14 +31,14 @@ header {
     position: relative;
 }
 
-/* LOGO GRANDE E VISÍVEL ✅ */
+/* LOGO */
 .logo {
-    width: 85px;     /* ← 70% MAIOR! */
-    height: 85px;    /* ← 70% MAIOR! */
+    width: 85px;
+    height: 85px;
     object-fit: contain;
 }
 
-/* MENU MOBILE - CSS Puro com Checkbox Hack */
+/* MENU MOBILE - CORRIGIDO */
 .menu-toggle {
     display: none;
 }
@@ -46,6 +49,7 @@ header {
     cursor: pointer;
     gap: 4px;
     padding: 4px;
+    z-index: 1002;
 }
 
 .menu-label span {
@@ -85,7 +89,7 @@ nav a:hover {
 
 /* MAIN */
 main {
-    padding: 2rem;
+    padding: 2rem 1rem; /* 🔧 REDUZIDO padding lateral */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -93,7 +97,7 @@ main {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 3rem 1.5rem; /* 🔧 REDUZIDO */
     background: linear-gradient(135deg, rgba(30,30,30,0.9), rgba(0,200,83,0.3));
     border-radius: 25px;
     margin-bottom: 3rem;
@@ -101,14 +105,15 @@ main {
 }
 
 .hero h1 {
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 5vw, 2.8rem); /* 🔧 RESPONSIVO AUTOMÁTICO */
     margin-bottom: 1rem;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 4vw, 1.2rem);
     opacity: 0.95;
+    padding: 0 1rem;
 }
 
 .grid {
@@ -169,6 +174,7 @@ main {
     letter-spacing: 1px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,200,83,0.3);
+    white-space: nowrap;
 }
 
 .btn:hover {
@@ -176,10 +182,10 @@ main {
     box-shadow: 0 8px 25px rgba(0,200,83,0.4);
 }
 
-/* NOTÍCIA */
+/* CONTINUA O MESMO PARA OUTRAS SEÇÕES... */
 .noticia {
     background: white;
-    padding: 2.5rem;
+    padding: 2.5rem 1.5rem; /* 🔧 REDUZIDO */
     border-radius: 25px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     margin-top: 2rem;
@@ -192,12 +198,11 @@ main {
     margin-bottom: 1.5rem;
 }
 
-/* FOOTER */
 footer {
     background: #1e1e1e;
     color: white;
     text-align: center;
-    padding: 2.5rem;
+    padding: 2.5rem 1rem; /* 🔧 REDUZIDO */
     margin-top: 4rem;
 }
 
@@ -210,14 +215,16 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-/* FILTROS (PRODUTOS) */
+/* FILTROS */
 .filtros {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     margin: 2rem 0;
     overflow-x: auto;
     padding: 1rem 0;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch; /* 🔧 MELHOR SCROLL MOBILE */
 }
 
 .filtro-btn {
@@ -229,6 +236,8 @@ footer {
     font-weight: 600;
     white-space: nowrap;
     transition: all 0.3s ease;
+    flex-shrink: 0; /* 🔧 NÃO ENCOLHE OS BOTÕES */
+    min-width: 80px;
 }
 
 .filtro-btn.ativo,
@@ -238,343 +247,69 @@ footer {
     transform: translateY(-2px);
 }
 
-code {
-    background: #333;
-    color: #00c853;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-family: monospace;
-}
-
-/* CARRINHO */
-.carrinho-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.item-carrinho {
-    display: flex;
-    gap: 1rem;
-    padding: 1.5rem;
-    border: 2px solid #f0f0f0;
-    border-radius: 15px;
-    margin-bottom: 1rem;
-    background: white;
-    transition: all 0.3s ease;
-}
-
-.item-carrinho:hover {
-    border-color: #00c853;
-    box-shadow: 0 5px 20px rgba(0,200,83,0.1);
-}
-
-.item-img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.item-info h3 {
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.item-desc {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-.item-quantidade {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.item-quantidade select {
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background: white;
-}
-
-.item-preco {
-    text-align: right;
-    margin-left: auto;
-}
-
-.preco-unit {
-    display: block;
-    font-size: 1rem;
-    color: #666;
-    text-decoration: line-through;
-}
-
-.preco-total {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #00c853;
-}
-
-.btn-remover {
-    display: block;
-    margin-top: 0.5rem;
-    padding: 5px 10px;
-    background: #ff4444;
-    color: white;
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
-}
-
-.btn-remover:hover {
-    background: #cc0000;
-}
-
-.resumo-compra {
-    background: white;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    height: fit-content;
-    position: sticky;
-    top: 2rem;
-}
-
-.resumo-compra h3 {
-    margin-bottom: 1.5rem;
-    color: #333;
-}
-
-.resumo-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #eee;
-}
-
-.resumo-item.destaque {
-    font-size: 1.3rem;
-    color: #00c853;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 3px solid #00c853;
-}
-
-.promo-section {
-    margin: 1.5rem 0;
-}
-
-.input-promo {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-.btn-promo {
-    width: 100%;
-    padding: 12px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-promo:hover {
-    background: #00c853;
-    transform: translateY(-2px);
-}
-
-.btn-finalizar {
-    width: 100%;
-    background: linear-gradient(45deg, #00c853, #00b140);
-    font-size: 1.2rem;
-    padding: 16px;
-    margin-bottom: 1rem;
-}
-
-.btn-continuar {
-    width: 100%;
-    background: transparent;
-    color: #333;
-    border: 2px solid #ddd;
-    padding: 12px;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-.btn-continuar:hover {
-    background: #333;
-    color: white;
-    border-color: #333;
-}
-
-/* CONTATO */
-.contato-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    margin: 3rem 0;
-}
-
-.form-section {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 25px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-
-.form-contato {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #333;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    font-family: inherit;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #00c853;
-    box-shadow: 0 0 0 3px rgba(0,200,83,0.1);
-}
-
-.btn-enviar {
-    background: linear-gradient(45deg, #00c853, #00b140);
-    font-size: 1.1rem;
-    padding: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.btn-whatsapp {
-    background: #25D366 !important;
-    margin-top: 1rem;
-}
-
-.btn-email {
-    background: #007BFF !important;
-    margin-top: 1rem;
-}
-
-.btn-mapa {
-    background: #FF6B35 !important;
-    margin-top: 1rem;
-}
-
-.info-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.info-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.info-card h3 {
-    color: #333;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.info-card p {
-    color: #666;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.mapa-simulado {
-    margin-top: 2rem;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-/* RESPONSIVO */
+/* RESPONSIVO - TOTALMENTE REFEITO */
 @media (max-width: 1024px) {
     .grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
+    }
+    
+    main {
+        padding: 1.5rem 1rem;
     }
 }
 
 @media (max-width: 768px) {
     .topo {
         padding: 1rem;
+        gap: 1rem;
     }
     
-    /* MENU MOBILE */
+    /* MENU MOBILE ✅ FUNCIONANDO */
     .menu-label {
         display: flex;
+        order: 3; /* hamburger no final */
     }
     
     nav {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
-        max-width: 300px;
+        width: 80vw;
+        max-width: 320px;
         height: 100vh;
-        background: #1e1e1e;
+        background: rgba(30,30,30,0.98);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: right 0.3s ease;
+        transition: right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         z-index: 1000;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(20px);
+        padding: 2rem 0;
     }
     
     nav ul {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
         text-align: center;
-        padding: 2rem 0;
+        padding: 0;
+        width: 100%;
     }
     
-    /* Checkbox Hack para abrir/fechar menu */
-    .menu-toggle:checked ~ nav {
-        right: 0;
+    nav li {
+        width: 100%;
     }
     
-    /* Overlay */
-    .menu-toggle:checked ~ .menu-overlay {
+    nav a {
         display: block;
+        padding: 1rem 2rem;
+        width: 100%;
+        font-size: 1.1rem;
+    }
+    
+    /* ✅ CHECKBOX HACK CORRIGIDO */
+    #menu-toggle:checked ~ nav {
+        right: 0;
     }
     
     .menu-overlay {
@@ -584,8 +319,15 @@ code {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.6);
         z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    #menu-toggle:checked ~ .menu-overlay {
+        display: block;
+        opacity: 1;
     }
     
     main {
@@ -595,10 +337,6 @@ code {
     .grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
     }
     
     .carrinho-container,
@@ -609,19 +347,23 @@ code {
     
     .resumo-compra {
         position: static;
+        margin-top: 2rem;
     }
     
     .item-carrinho {
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
     
     .item-preco {
         margin-left: 0;
+        text-align: center;
+        margin-top: 1rem;
     }
     
     .form-section {
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
     }
     
     .info-section {
@@ -631,53 +373,93 @@ code {
     .info-card {
         padding: 1.5rem;
     }
-    
-    .filtros {
-        justify-content: flex-start;
-    }
 }
 
 @media (max-width: 480px) {
-    main {
-        padding: 0.5rem;
+    html {
+        font-size: 14px; /* 🔧 BASE MENOR */
+    }
+    
+    body {
+        padding-bottom: 2rem; /* espaço pro footer */
     }
     
     .topo {
+        padding: 0.75rem 1rem;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    main {
         padding: 0.75rem;
     }
     
-    /* LOGO MOBILE GRANDE E VISÍVEL ✅ */
-    .logo {
-        width: 65px;     /* ← AINDA VISÍVEL */
-        height: 65px;
+    .hero {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .card {
+        padding: 1.25rem;
     }
     
     .card img,
     .item-img {
-        height: 150px;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
+        height: 160px;
     }
     
     .btn {
-        padding: 10px 20px;
+        padding: 12px 20px;
         font-size: 0.9rem;
+    }
+    
+    .filtros {
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+    }
+    
+    .filtro-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        min-width: 70px;
+    }
+    
+    .noticia {
+        padding: 2rem 1rem;
+    }
+    
+    footer {
+        padding: 2rem 1rem;
     }
     
     .form-group input,
     .form-group select,
     .form-group textarea {
         padding: 12px;
-    }
-    
-    .filtros {
-        flex-wrap: wrap;
+        font-size: 16px; /* 🔧 PREVINE ZOOM SAFARI */
     }
 }
 
-/* Animações */
+/* 🔧 MELHORIAS EXTRAS PARA CELULAR */
+@media (max-width: 360px) {
+    .topo {
+        padding: 0.5rem;
+    }
+    
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* ANIMAÇÕES SUAVES */
 @keyframes fadeInUp {
     from {
         opacity: 0;

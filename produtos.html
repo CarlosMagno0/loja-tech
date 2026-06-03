@@ -1,28 +1,97 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - Loja Tech</title>
+
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="img/logo.png" type="image/png">
+
+    <!-- REACT CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        .crud-container {
+            margin-top: 3rem;
+        }
+
+        .crud-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .crud-form input,
+        .crud-form textarea {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .crud-form button {
+            background: #00c853;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .crud-form button:hover {
+            background: #00a844;
+        }
+
+        .crud-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn-edit {
+            background: #007bff;
+        }
+
+        .btn-delete {
+            background: #ff4444;
+        }
+
+        .btn-edit,
+        .btn-delete {
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-
 
 <header>
     <div class="topo">
         <img src="img/logo.png" alt="Logo Loja Tech" class="logo">
-        
-       
+
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
         <label for="menu-toggle" class="menu-label">
             <span></span>
             <span></span>
             <span></span>
         </label>
-        
-        
+
         <h1>Loja Tech</h1>
     </div>
 
@@ -38,89 +107,17 @@
     <div class="menu-overlay"></div>
 </header>
 
-
 <main>
+
     <section class="hero">
-        <h1>🛒 Todos os Produtos</h1>
-        <p>Encontre o periférico perfeito para sua setup gamer</p>
+        <h1>🛒 CRUD de Produtos</h1>
+        <p>Gerencie os produtos da Loja Tech</p>
     </section>
 
-    
-    <div class="filtros">
-        <button class="filtro-btn ativo">Todos</button>
-        <button class="filtro-btn">Mouses</button>
-        <button class="filtro-btn">Teclados</button>
-        <button class="filtro-btn">Headsets</button>
-        <button class="filtro-btn">Monitores</button>
-    </div>
+    <!-- REACT APP -->
+    <div id="root"></div>
 
-    <div class="grid">
-        
-        <div class="card">
-            <img src="img/mouse.jpg" alt="Mouse Gamer RGB Pro">
-            <h3>Mouse Gamer RGB Pro</h3>
-            <div class="preco">R$ 199,90</div>
-            <p>Alta precisão 16.000 DPI, iluminação RGB personalizável e peso ultraleve.</p>
-            <a href="carrinho.html" class="btn">Adicionar ao carrinho</a>
-        </div>
-
-        
-        <div class="card">
-            <img src="img/teclado.png" alt="Teclado Mecânico RGB">
-            <h3>Teclado Mecânico RGB</h3>
-            <div class="preco">R$ 349,90</div>
-            <p>Switches mecânicos Red, anti-ghosting completo e 16.8M cores RGB.</p>
-            <a href="carrinho.html" class="btn">Adicionar ao carrinho</a>
-        </div>
-
-        
-        <div class="card">
-            <img src="img/headset.png" alt="Headset Gamer 7.1">
-            <h3>Headset Gamer 7.1</h3>
-            <div class="preco">R$ 289,90</div>
-            <p>Áudio surround 7.1, microfone com cancelamento de ruído e conforto 24h.</p>
-            <a href="carrinho.html" class="btn">Adicionar ao carrinho</a>
-        </div>
-
-        
-        <div class="card">
-            <img src="img/monitor.jpg" alt="Monitor 144Hz 27 polegadas">
-            <h3>Monitor 144Hz 27"</h3>
-            <div class="preco">R$ 1.299,90</div>
-            <p>Panel IPS 1ms, 144Hz refresh rate, HDR400 e FreeSync Premium.</p>
-            <a href="carrinho.html" class="btn">Adicionar ao carrinho</a>
-        </div>
-
-        
-        <div class="card">
-            <img src="img/mousepad.jpg" alt="Mousepad Gamer XL">
-            <h3>Mousepad Gamer XL</h3>
-            <div class="preco">R$ 89,90</div>
-            <p>Superfície otimizada, base antiderrapante e tamanho 90x40cm.</p>
-            <a href="carrinho.html" class="btn">Adicionar ao carrinho</a>
-        </div>
-
-       
-        <div class="card">
-            <img src="img/Cadeira-Gamer.jpg" alt="Cadeira Gamer Ergonômica">
-            <h3>Cadeira Gamer Pro</h3>
-            <div class="preco">R$ 899,90</div>
-            <p>Reclinação 180°, ajustes lombar e braços 4D, couro premium.</p>
-            <a href="carrinho.html" class="btn">Adicionar ao carrinho</a>
-        </div>
-    </div>
-
-    
-    <div class="cta-section noticia">
-        <h2>🎁 Promoção Especial</h2>
-        <p>
-            <strong>Compre 3 produtos e ganhe 15% OFF!</strong><br>
-            Use o cupom <code>GAMER15</code> no checkout.
-        </p>
-        <a href="carrinho.html" class="btn">Ir para o Carrinho</a>
-    </div>
 </main>
-
 
 <footer>
     <div class="footer-content">
@@ -131,5 +128,197 @@
     </div>
 </footer>
 
+<script type="text/babel">
+
+const { useState, useEffect } = React;
+
+function App() {
+
+    const [products, setProducts] = useState(() => {
+        const saved = localStorage.getItem("products");
+        return saved ? JSON.parse(saved) : [
+            {
+                id: 1,
+                nome: "Mouse Gamer RGB",
+                preco: "199.90",
+                descricao: "Mouse gamer com RGB"
+            },
+            {
+                id: 2,
+                nome: "Teclado Mecânico",
+                preco: "349.90",
+                descricao: "Teclado mecânico profissional"
+            }
+        ];
+    });
+
+    const [nome, setNome] = useState("");
+    const [preco, setPreco] = useState("");
+    const [descricao, setDescricao] = useState("");
+
+    const [editingId, setEditingId] = useState(null);
+
+    useEffect(() => {
+        localStorage.setItem("products", JSON.stringify(products));
+    }, [products]);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        if (!nome || !preco || !descricao) {
+            return;
+        }
+
+        if (editingId) {
+
+            const updated = products.map(product =>
+                product.id === editingId
+                    ? {
+                        ...product,
+                        nome,
+                        preco,
+                        descricao
+                    }
+                    : product
+            );
+
+            setProducts(updated);
+            setEditingId(null);
+
+        } else {
+
+            const newProduct = {
+                id: Date.now(),
+                nome,
+                preco,
+                descricao
+            };
+
+            setProducts([...products, newProduct]);
+        }
+
+        setNome("");
+        setPreco("");
+        setDescricao("");
+    }
+
+    function deleteProduct(id) {
+
+        const confirmDelete = confirm(
+            "Deseja realmente excluir este produto?"
+        );
+
+        if (!confirmDelete) return;
+
+        const updated = products.filter(
+            product => product.id !== id
+        );
+
+        setProducts(updated);
+    }
+
+    function editProduct(product) {
+        setNome(product.nome);
+        setPreco(product.preco);
+        setDescricao(product.descricao);
+
+        setEditingId(product.id);
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    return (
+        <div className="crud-container">
+
+            <form
+                className="crud-form"
+                onSubmit={handleSubmit}
+            >
+
+                <input
+                    type="text"
+                    placeholder="Nome do Produto"
+                    value={nome}
+                    onChange={(e) => setNome(e.target.value)}
+                />
+
+                <input
+                    type="number"
+                    placeholder="Preço"
+                    value={preco}
+                    onChange={(e) => setPreco(e.target.value)}
+                />
+
+                <textarea
+                    placeholder="Descrição do produto"
+                    rows="4"
+                    value={descricao}
+                    onChange={(e) => setDescricao(e.target.value)}
+                ></textarea>
+
+                <button type="submit">
+                    {
+                        editingId
+                        ? "✏️ Atualizar Produto"
+                        : "➕ Cadastrar Produto"
+                    }
+                </button>
+
+            </form>
+
+            <div className="grid">
+
+                {
+                    products.map(product => (
+
+                        <div className="card" key={product.id}>
+
+                            <h3>{product.nome}</h3>
+
+                            <div className="preco">
+                                R$ {Number(product.preco).toFixed(2)}
+                            </div>
+
+                            <p>{product.descricao}</p>
+
+                            <div className="crud-buttons">
+
+                                <button
+                                    className="btn-edit"
+                                    onClick={() => editProduct(product)}
+                                >
+                                    ✏️ Editar
+                                </button>
+
+                                <button
+                                    className="btn-delete"
+                                    onClick={() => deleteProduct(product.id)}
+                                >
+                                    🗑️ Excluir
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    ))
+                }
+
+            </div>
+
+        </div>
+    );
+}
+
+ReactDOM.createRoot(
+    document.getElementById("root")
+).render(<App />);
+
+</script>
+
 </body>
 </html>
+```

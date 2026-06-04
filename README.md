@@ -1,6 +1,6 @@
 # 🛒 Loja Tech
 
-🔗 Deploy do projeto: https://lojatech.netlify.app/
+
 
 ---
 
@@ -35,9 +35,7 @@ O site é composto pelas seguintes páginas:
 
 * HTML5
 * CSS3
-* ReactJS
-* JavaScript
-* LocalStorage
+
 
 ---
 
